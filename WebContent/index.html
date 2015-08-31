@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Welcome to FOODIE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <script type="text/javascript">
+    //custom JS code
+	
+  </script>
+  <style>
+  html { 
+		background: url(images/bg.jpg) no-repeat center center fixed; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+  </style>
+  </head>
+  
+  
+  <body>
+	<p style="background-color:#FFFFFF; opacity:0.5; width:100% ;height:50px; top:-10px ; position:fixed"></p>
+	<a class="waves-effect waves-yellow btn pos_left" href="login.jsp">Login</a>
+	
+	<!-- Dropdown Trigger -->
+	<a class='dropdown-button btn pos_center' href='#' data-activates='dropdown1'>Menu</a>
+
+	<!-- Dropdown Structure -->
+	<ul id='dropdown1' class='dropdown-content' >
+		<li><a href="Breakfast.jsp">Breakfast</a></li>
+		<li class="divider"></li>
+		<li><a href="Snacks.jsp">Snacks &<br>Beverages</a></li>
+		<li class="divider"></li>
+		<li><a href="Meals_veg.jsp">Meals (Veg)</a></li>
+		<li class="divider"></li>
+		<li><a href="Meals_non_veg.jsp">Meals (Non-Veg)</a></li>
+		<li class="divider"></li>
+		<li><a href="Desserts.jsp">Desserts &<br>Ice-Creams</a></li>
+		<li class="divider"></li>
+	</ul>
+	
+	<a class="waves-effect waves-yellow btn pos_right" href="register.jsp">Register</a>
+	<!-- jQuery is required by Materialize to function -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+</html>
