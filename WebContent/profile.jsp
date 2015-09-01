@@ -66,10 +66,10 @@
 			else if(request.getParameter("nv1")!=null||request.getParameter("nv2")!=null||request.getParameter("nv3")!=null||request.getParameter("nv4")!=null||request.getParameter("nv5")!=null||request.getParameter("nv6")!=null||request.getParameter("nv7")!=null||request.getParameter("nv8")!=null||request.getParameter("nv9")!=null||request.getParameter("nv10")!=null||request.getParameter("nv11")!=null||request.getParameter("nv12")!=null||request.getParameter("nv13")!=null||request.getParameter("nv14")!=null||request.getParameter("nv15")!=null||request.getParameter("nv16")!=null||request.getParameter("nv17")!=null||request.getParameter("nv18")!=null||request.getParameter("nv19")!=null) {
 				flag='n';
 			}
-			else if(request.getParameter("d1")!=null||request.getParameter("d2")!=null||request.getParameter("d3")!=null||request.getParameter("d4")!=null||request.getParameter("d5")!=null||request.getParameter("d6")!=null||request.getParameter("d7")!=null||request.getParameter("d8")!=null||request.getParameter("d9")!=null||request.getParameter("d10")!=null||request.getParameter("d11")!=null) {
+			else if(request.getParameter("d1")!=null||request.getParameter("d2")!=null||request.getParameter("d3")!=null||request.getParameter("d4")!=null||request.getParameter("d5")!=null||request.getParameter("d6")!=null||request.getParameter("d7")!=null||request.getParameter("d8")!=null||request.getParameter("d9")!=null||request.getParameter("d10")!=null||request.getParameter("d11")!=null||request.getParameter("d12")!=null||request.getParameter("d13")!=null||request.getParameter("d14")!=null) {
 				flag='d';
 			}
-			else if(hs.getAttribute("current_user")==null){
+			else if(hs.getAttribute("current_user")==null) {
 				response.sendRedirect("login.jsp");
 				return ;
 			}
@@ -215,8 +215,10 @@
 							String item=rs.getString(1);
 							int cost=Integer.parseInt(rs.getString(2));
 							ps=con.prepareStatement(query);
-							ps.setString(1,item);
-							ps.setInt(2,cost);
+							count++;
+							ps.setInt(1,count);
+							ps.setString(2,item);
+							ps.setInt(3,cost);
 							ps.executeUpdate();
 						}
 						
@@ -225,7 +227,7 @@
 					
 					else if(flag=='s') {
 						String s1,s2,s3,s4,s5,s6,s7,s8,s9;
-						String query="insert into "+usertable+" values (?,?)";
+						String query="insert into "+usertable+" values (?,?,?)";
 						if((s1=request.getParameter("s1"))!=null&&s1.equals("on")) {
 							ps=con.prepareStatement("select name, cost from products where id='S1'");
 							rs=ps.executeQuery();
@@ -233,8 +235,10 @@
 							String item=rs.getString(1);
 							int cost=Integer.parseInt(rs.getString(2));
 							ps=con.prepareStatement(query);
-							ps.setString(1,item);
-							ps.setInt(2,cost);
+							count++;
+							ps.setInt(1,count);
+							ps.setString(2,item);
+							ps.setInt(3,cost);
 							ps.executeUpdate();
 						}
 						if((s2=request.getParameter("s2"))!=null&&s2.equals("on")) {
@@ -244,8 +248,10 @@
 							String item=rs.getString(1);
 							int cost=Integer.parseInt(rs.getString(2));
 							ps=con.prepareStatement(query);
-							ps.setString(1,item);
-							ps.setInt(2,cost);
+							count++;
+							ps.setInt(1,count);
+							ps.setString(2,item);
+							ps.setInt(3,cost);
 							ps.executeUpdate();
 						}
 						if((s3=request.getParameter("s3"))!=null&&s3.equals("on")) {
@@ -255,8 +261,10 @@
 							String item=rs.getString(1);
 							int cost=Integer.parseInt(rs.getString(2));
 							ps=con.prepareStatement(query);
-							ps.setString(1,item);
-							ps.setInt(2,cost);
+							count++;
+							ps.setInt(1,count);
+							ps.setString(2,item);
+							ps.setInt(3,cost);
 							ps.executeUpdate();
 						}
 						if((s4=request.getParameter("s4"))!=null&&s4.equals("on")) {
@@ -266,8 +274,10 @@
 							String item=rs.getString(1);
 							int cost=Integer.parseInt(rs.getString(2));
 							ps=con.prepareStatement(query);
-							ps.setString(1,item);
-							ps.setInt(2,cost);
+							count++;
+							ps.setInt(1,count);
+							ps.setString(2,item);
+							ps.setInt(3,cost);
 							ps.executeUpdate();
 						}
 						if((s5=request.getParameter("s5"))!=null&&s5.equals("on")) {
@@ -277,8 +287,10 @@
 							String item=rs.getString(1);
 							int cost=Integer.parseInt(rs.getString(2));
 							ps=con.prepareStatement(query);
-							ps.setString(1,item);
-							ps.setInt(2,cost);
+							count++;
+							ps.setInt(1,count);
+							ps.setString(2,item);
+							ps.setInt(3,cost);
 							ps.executeUpdate();
 						}
 						if((s6=request.getParameter("s6"))!=null&&s6.equals("on")) {
@@ -772,8 +784,10 @@
 							String item=rs.getString(1);
 							int cost=Integer.parseInt(rs.getString(2));
 							ps=con.prepareStatement(query);
+							count++;
 							ps.setString(1,item);
 							ps.setInt(2,cost);
+							ps.setInt(3,cost);
 							ps.executeUpdate();
 						}
 						if((n19=request.getParameter("nv19"))!=null&&n19.equals("on")) {
@@ -794,7 +808,7 @@
 					
 					
 					else if(flag=='d') {
-						String d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11;
+						String d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14;
 						String query="insert into "+usertable+" values (?,?,?)";
 						if((d1=request.getParameter("d1"))!=null&&d1.equals("on")) {
 							ps=con.prepareStatement("select name, cost from products where id='D1'");
@@ -939,6 +953,45 @@
 							ps.setInt(3,cost);
 							ps.executeUpdate();
 						}
+						if((d12=request.getParameter("d12"))!=null&&d12.equals("on")) {
+							ps=con.prepareStatement("select name, cost from products where id='D12'");
+							rs=ps.executeQuery();
+							rs.next();
+							String item=rs.getString(1);
+							int cost=Integer.parseInt(rs.getString(2));
+							ps=con.prepareStatement(query);
+							count++;
+							ps.setInt(1,count);
+							ps.setString(2,item);
+							ps.setInt(3,cost);
+							ps.executeUpdate();
+						}
+						if((d13=request.getParameter("d13"))!=null&&d13.equals("on")) {
+							ps=con.prepareStatement("select name, cost from products where id='D13'");
+							rs=ps.executeQuery();
+							rs.next();
+							String item=rs.getString(1);
+							int cost=Integer.parseInt(rs.getString(2));
+							ps=con.prepareStatement(query);
+							count++;
+							ps.setInt(1,count);
+							ps.setString(2,item);
+							ps.setInt(3,cost);
+							ps.executeUpdate();
+						}
+						if((d14=request.getParameter("d14"))!=null&&d14.equals("on")) {
+							ps=con.prepareStatement("select name, cost from products where id='D14'");
+							rs=ps.executeQuery();
+							rs.next();
+							String item=rs.getString(1);
+							int cost=Integer.parseInt(rs.getString(2));
+							ps=con.prepareStatement(query);
+							count++;
+							ps.setInt(1,count);
+							ps.setString(2,item);
+							ps.setInt(3,cost);
+							ps.executeUpdate();
+						}
 						
 					}
 			}
@@ -955,8 +1008,6 @@
 		</tr>
 		<tr>
 		<%	String query="select * from "+usertable;
-			if(ps!=null)
-				ps.close();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
 			int counter=0;
